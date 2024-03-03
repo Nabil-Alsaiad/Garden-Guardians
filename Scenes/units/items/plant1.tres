@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/units/unit_item.gd" type="Script" id=1]
+[ext_resource path="res://Art/plant.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "plant1"
+texture = ExtResource( 2 )
+max_health = 8
+attack_cooldown = 1.0
+attack_damage = 1
+attack_width = 1
+attack_dis = 2
+attack_dir = "RIGHT"

@@ -1,0 +1,221 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/PixelAE-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fancy Border.png" type="Texture" id=4]
+[ext_resource path="res://Fancy Boarder2.png" type="Texture" id=5]
+[ext_resource path="res://floaty_32.png" type="Texture" id=6]
+[ext_resource path="res://Audios/digging-with-shovel-63069.wav" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=10]
+size = 60
+outline_color = Color( 0.407843, 1, 0.109804, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0.00757576, 1 )
+colors = PoolColorArray( 0.410013, 0.952148, 0.319862, 1, 0.118879, 0.170898, 0.104809, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Fade Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Environment" id=11]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.3
+glow_blend_mode = 0
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -276.0
+margin_right = 276.0
+margin_bottom = 90.0
+custom_colors/font_color = Color( 0.517647, 1, 0.584314, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Garden Guardians"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 110, 204 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 110, 403 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource( 13 )
+position = Vector2( 488, 577 )
+amount = 20
+speed_scale = 0.88
+texture = ExtResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 500.0
+gravity = Vector2( 0, -100 )
+color_initial_ramp = SubResource( 12 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = -76.0
+margin_right = 169.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_right = 129.0
+margin_bottom = 74.0
+custom_colors/font_color_hover = Color( 0.341176, 0.976471, 0.333333, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/focus = SubResource( 2 )
+text = "Start"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+visible = false
+margin_top = 78.0
+margin_right = 179.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 8 )
+custom_styles/focus = SubResource( 1 )
+text = "Credits"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+margin_top = 78.0
+margin_right = 129.0
+margin_bottom = 152.0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/focus = SubResource( 3 )
+text = "Quit"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Fade In" = SubResource( 4 )
+"anims/Fade Out" = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 11 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Pause" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Button3_pressed"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Credits Intro.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/PixelAE-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/20240301_154213.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 65
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 65
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Environment" id=4]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.3
+glow_blend_mode = 0
+
+[node name="Credits Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 250 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.5
+margin_top = -210.0
+margin_right = 133.5
+margin_bottom = -112.0
+custom_fonts/font = SubResource( 5 )
+text = "Made By"
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = 115.0
+margin_right = 167.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 6 )
+text = "SGN Team"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Fade In" = SubResource( 1 )
+"anims/Fade Out" = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[node name="Pause" parent="." instance=ExtResource( 4 )]
+visible = false
