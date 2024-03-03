@@ -15,7 +15,8 @@ func _ready():
 	if int(grid_size.x) % 2 == 0 or int(grid_size.y) % 2 == 0:
 		print("Keep grid size of odd numbers")
 	
-	var grid_start = -((grid_size / 2) * (_land_size))
+#	var grid_start = -((grid_size / 2) * (_land_size))
+	var grid_start = Vector2(8 * _land_size, 4 * _land_size)
 	for y in range(grid_size.y):
 		for x in range(grid_size.x):
 			var land = _land_scene.instance()
@@ -74,7 +75,7 @@ func _on_Button_pressed():
 	started = not started
 		
 	if started:
-		$Button.text = "إيقاف"
+		$Button.text = "Stop"
 	else:
-		$Button.text = "بدء"
+		$Button.text = "Start"
 		restart_game()

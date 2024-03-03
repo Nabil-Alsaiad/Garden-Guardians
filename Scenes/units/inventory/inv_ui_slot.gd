@@ -11,7 +11,7 @@ var _under_mouse: bool = false
 var _my_plant: Node2D = null
 
 func _process(_delta):
-	if _my_plant != null or item == null:
+	if is_instance_valid(_my_plant) or item == null:
 		return
 	
 	if not _under_mouse or not Input.is_action_just_pressed("click"):
@@ -20,11 +20,11 @@ func _process(_delta):
 	if world.started:
 		return
 	
-	_my_plant = plant_scene.instantiate()
+	_my_plant = plant_scene.instance()
+	_my_plant.name = 'Plant'
 	_my_plant.set_item(self.item)
+	_my_plant.global_position = get_global_mouse_position()
 	plant_holder.add_child(_my_plant)
-	var mouse_pos = get_global_mouse_position()
-	_my_plant.global_position = mouse_pos
 	world.select_unit(_my_plant)
 
 func update_item(item: UnitItem):

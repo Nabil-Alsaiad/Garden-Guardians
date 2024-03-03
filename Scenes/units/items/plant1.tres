@@ -7,9 +7,7 @@
 script = ExtResource( 1 )
 name = "plant1"
 texture = ExtResource( 2 )
-max_health = 8
-attack_cooldown = 1.0
-attack_damage = 1
+max_health = 5
 attack_width = 1
-attack_dis = 2
-attack_dir = "RIGHT"
+attack_dis = 1
+attack_dir = "UP"

@@ -17,6 +17,7 @@ func _get_land():
 	return land
 func _set_land(value: StaticBody2D):
 	land = value
+	print('my new land: ', land)
 	if land != null:
 		land.set_unit(self)
 
@@ -33,7 +34,7 @@ func _attack() -> void:
 	var lands = get_attackable_lands()
 	for land in lands:
 		var attacked_unit = land.get_unit()
-		if attacked_unit != null:
+		if is_instance_valid(attacked_unit):
 			attacked_unit.take_damage(data.attack_damage)
 			print('unit ', self.name, ' attacking ', land.get_unit())
 

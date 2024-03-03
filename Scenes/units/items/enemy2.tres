@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/units/unit_item.gd" type="Script" id=1]
+[ext_resource path="res://Art/enemy.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "enemy1"
+texture = ExtResource( 2 )
+max_health = 6
+attack_width = 1
+attack_dis = 1
+attack_dir = "DOWN"

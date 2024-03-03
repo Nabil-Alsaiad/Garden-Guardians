@@ -15,14 +15,6 @@ func set_unit(value):
 func set_vec(vec):
 	self.vec = vec
 	self.name = "land" + str(vec)
-
-func _process(_delta):
-	if !_under_mouse:
-		return
-	
-	var released = Input.is_action_just_released('click')
-	if released:
-		pass
 	
 func can_set_unit() -> bool:
 	return self._unit == null
@@ -30,9 +22,8 @@ func can_set_unit() -> bool:
 func toggle_attacked(value):
 	$AttackEffect.visible = value
 
-func _on_area_2d_mouse_entered():
+func _on_Area2D_mouse_entered():
 	_under_mouse = true
 
-func _on_area_2d_mouse_exited():
+func _on_Area2D_mouse_exited():
 	_under_mouse = false
-	

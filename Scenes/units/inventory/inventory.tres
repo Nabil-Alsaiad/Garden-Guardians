@@ -1,8 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/units/items/plant1.tres" type="Resource" id=1]
 [ext_resource path="res://Scenes/units/inventory/inventory.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/units/items/plant3.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/units/items/plant2.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 2 )
-items = [ ExtResource( 1 ), null, null, null, null ]
+items = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), null, null ]

@@ -7,9 +7,7 @@
 script = ExtResource( 1 )
 name = "enemy1"
 texture = ExtResource( 2 )
-max_health = 6
-attack_cooldown = 1.0
-attack_damage = 2
+max_health = 10
 attack_width = 0
-attack_dis = 1
+attack_dis = 3
 attack_dir = "LEFT"
